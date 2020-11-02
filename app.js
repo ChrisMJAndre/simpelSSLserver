@@ -4,10 +4,10 @@ const app = express();
 const path = require("path");
 const fs = require("fs");
 
-app.use("/", (req, res) => {
-  console.log("it works");
-});
-
 const sslServer = https.createServer({ key, cert }, app);
 
-app.listen(3443);
+app.use("/", (req, res) => {
+  res.send("Connection to server");
+});
+
+sslServer.listen(3443);
